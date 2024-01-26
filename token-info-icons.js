@@ -5,7 +5,7 @@ class TokenInfoIcons {
         if (actor === undefined) return;
 
         let ac = 10
-        if (game.world.system === "pf1") {
+        if (game.world.system === "pf1" || game.world.system === "D35E") {
             ac = actor.system.attributes.ac.normal.total
         }
         else if (game.world.system === "dcc") {
@@ -26,8 +26,7 @@ class TokenInfoIcons {
         else if (game.world.system === "dcc") {
             perception = 0
             perceptionTitle = "Perception DC";
-        }
-        else {
+        } else {
             perception = actor.system.skills.prc.passive;
         }
 
@@ -35,7 +34,7 @@ class TokenInfoIcons {
 
         let speed = "";
 
-        if (game.world.system === "pf2e") {
+        if (game.world.system === "pf2e" || game.world.system === "D35E") {
             if (actor.data.type === "npc") {
                 speed = '<span class="token-info-speed" title="Speed"><i class="fas fa-walking"></i><span style="font-size: 0.65em;"> ' + actor.system.attributes.speed.value + '</span></span>';
             } else if (actor.data.type === "familiar") {
@@ -57,6 +56,14 @@ class TokenInfoIcons {
             if (actor.system.attributes.movement.climb != 0 && actor.system.attributes.movement.climb != null) speed += '<span class="token-info-speed" title="Climb"><i class="fas fa-grip-lines"></i> ' + actor.system.attributes.movement.climb + '<span style="font-size: 0.5em;"> ' + actor.system.attributes.movement.units + "</span></span>";
         }
 
+
+        let initiative = null;
+        if (game.world.system === "D35E") {
+            if (actor.data.type === "Player") {
+                initiative = actor.system.attributes.init.total;
+            }
+        }
+
         // DCC luck
 
         let luck = null;
@@ -70,13 +77,22 @@ class TokenInfoIcons {
 
         let position = game.settings.get('token-info-icons', 'position');
 
-        let defaultButtons = '<div class="control-icon token-info-icon">' + speed + '</div><div class="control-icon token-info-icon" title="Armor Class: ' + ac + '"><i class="fas fa-shield-alt"></i> ' + ac + '</div>';
-        if (game.world.system !== "dcc") {
-            defaultButtons += '<div class="control-icon token-info-icon" title="Passive Perception: ' + perception + '"><i class="fas fa-eye"></i> ' + perception + '</div>'
+
+        const speedButton = `<div class="control-icon token-info-icon" title="Speed">${speed}</div>`;
+        const acButton = `<div class="control-icon token-info-icon" title="Armor Class: ${ac}"><i class="fas fa-shield-alt"></i> ${ac}</div>`;
+        
+        let defaultButtons = `${speedButton}${acButton}`;
+        if (!["dcc", "D35E"].includes(game.world.system)) {
+            const perceptionButton = `<div class="control-icon token-info-icon" title="${perceptionTitle}: ${perception}"><i class="fas fa-eye"></i> ${perception}</div>`;
+            defaultButtons += perceptionButton;
         } else {
+            if (initiative != null) {
+                const initiativeButton = `<div class="control-icon token-info-icon" title="Initiative: ${initiative}"><i class="fas fa-running"></i> ${initiative}</div>`;
+            }
             // dcc specific
             if (luck != null) {
-                defaultButtons += '<div class="control-icon token-info-icon" title="Luck: ' + luck + '"><i class="fas fa-star"></i> ' + luck + '</div>'
+                const luckButton = `<div class="control-icon token-info-icon" title="Luck: ${luck}"><i class="fas fa-star"></i> ${luck}</div>`;
+                defaultButtons += luckButton;
             }
         }
 
