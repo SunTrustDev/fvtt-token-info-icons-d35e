@@ -1,5 +1,15 @@
+import { TokenInfoIcons35E } from "./d35e";
+
 class TokenInfoIcons {
     static async addTokenInfoButtons(app, html, data) {
+        
+        switch (game.world.system) {
+            case "D35E":
+                return TokenInfoIcons35E.addTokenInfoButtons(app, html, data);
+            default:
+                break;
+        }
+
         let actor = canvas.tokens.get(data._id).actor;
         //let actor = game.actors.get(data.actorId);
         if (actor === undefined) return;
