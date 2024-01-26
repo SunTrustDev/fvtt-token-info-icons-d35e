@@ -1,5 +1,5 @@
 {
-  "title": "Token Info Icons",
+  "title": "Token Info Icons -3.5e",
   "description": "Simple module that displays Speed, AC, and Passive Perception on Tokens for the GM or optionally players.",
   "version": "11.240.1",
   "scripts": [
@@ -9,8 +9,8 @@
     "/css/token-info-icons.css"
   ],
   "url": "https://github.com/jopeek/fvtt-token-info-icons",
-  "manifest": "https://raw.githubusercontent.com/jopeek/fvtt-token-info-icons/master/module.json",
-  "download": "https://github.com/jopeek/fvtt-token-info-icons/archive/refs/heads/master.zip",
+  "manifest": "https://raw.githubusercontent.com/SuntrustDev/fvtt-token-info-icons-d35e/master/module.json",
+  "download": "https://github.com/SuntrustDev/fvtt-token-info-icons-d35e/archive/refs/heads/master.zip",
   "id": "token-info-icons",
   "authors": [
     {
@@ -28,9 +28,9 @@
         "id": "dnd5e",
         "type": "system",
         "compatibility": {
-          "minimum": "2.2.2",
-          "verified": "2.4.0",
-          "maximum": "2.9.9"
+            "minimum": "2.2.2",
+            "verified": "2.4.0",
+            "maximum": "2.9.9"
         }
       },
       {
@@ -47,6 +47,15 @@
         "id": "dcc",
         "type": "system",
         "compatibility": {}
+      },
+      {
+          "id": "D35E",
+          "type": "system",
+          "compatibility": {
+            "minimum": "2.4.0",
+            "verified": "2.4.3",
+            "maximum": "2.4.3"
+          }
       }
     ]
   }
