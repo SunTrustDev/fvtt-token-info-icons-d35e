@@ -15,7 +15,7 @@ class TokenInfoIcons35E {
 
         // D35E-specific buttons
         let newdiv = '<div class="token-info-container">';
-        let position = game.settings.get('token-info-icons', 'position');
+        let position = game.settings.get('token-info-icons-d35e', 'position');
 
         const speedButton = `<div class="control-icon token-info-icon" title="Speed">${speed}</div>`;
         const acButton = `<div class="control-icon token-info-icon" title="Armor Class: ${ac}"><i class="fas fa-shield-alt"></i> ${ac}</div>`;
@@ -119,7 +119,7 @@ class TokenInfoIcons {
 
         let newdiv = '<div class="token-info-container">';
 
-        let position = game.settings.get('token-info-icons', 'position');
+        let position = game.settings.get('token-info-icons-d35e', 'position');
 
 
         const speedButton = `<div class="control-icon token-info-icon" title="Speed">${speed}</div>`;
@@ -142,7 +142,7 @@ class TokenInfoIcons {
 
 
         let passiveSensesButtons = '';
-        if (!['pf2e', 'pf1'].includes(game.world.system) && game.settings.get('token-info-icons', 'allPassiveSenses')) {
+        if (!['pf2e', 'pf1'].includes(game.world.system) && game.settings.get('token-info-icons-d35e', 'allPassiveSenses')) {
             const investigation = actor.system.skills.inv.passive;
             const insight = actor.system.skills.ins.passive;
             const stealth = actor.system.skills.ste.passive;
@@ -161,7 +161,7 @@ class TokenInfoIcons {
 }
 
 Hooks.on('ready', () => {
-    const gmOnly = game.settings.get('token-info-icons', 'gmOnly');
+    const gmOnly = game.settings.get('token-info-icons-d35e', 'gmOnly');
 
     if (gmOnly) {
         if (game.user.isGM) {
