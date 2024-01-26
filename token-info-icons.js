@@ -34,7 +34,7 @@ class TokenInfoIcons {
 
         let speed = "";
 
-        if (game.world.system === "pf2e" || game.world.system === "D35E") {
+        if (game.world.system === "pf2e") {
             if (actor.data.type === "npc") {
                 speed = '<span class="token-info-speed" title="Speed"><i class="fas fa-walking"></i><span style="font-size: 0.65em;"> ' + actor.system.attributes.speed.value + '</span></span>';
             } else if (actor.data.type === "familiar") {
@@ -44,7 +44,7 @@ class TokenInfoIcons {
             } else {
                 speed = '<span class="token-info-speed" title="Land"><i class="fas fa-walking"></i> ' + actor.system.attributes.speed.total + '</span>';
             }
-        } else if (game.world.system === "pf1") {
+        } else if (game.world.system === "pf1" || game.world.system === "D35E") {
             speed = '<span class="token-info-speed" title="Land"><i class="fas fa-walking"></i> ' + actor.system.attributes.speed.land.total + '</span>';
         } else if (game.world.system === "dcc") {
             speed = '<span class="token-info-speed" title="Movement"><i class="fas fa-walking"></i> ' + actor.system.attributes.speed.base + '</span>';
