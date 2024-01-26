@@ -1,5 +1,6 @@
 export class TokenInfoIcons35E {
     static async addTokenInfoButtons(app, html, data) {
+        console.info("Token Info Icons | Adding token info buttons for D35E");
         let actor = canvas.tokens.get(data._id).actor;
         if (actor === undefined) return;
 
@@ -14,7 +15,7 @@ export class TokenInfoIcons35E {
 
         // D35E-specific buttons
         let newdiv = '<div class="token-info-container">';
-        let position = game.settings.get('token-info-icons', 'position');
+        let position = game.settings.get('token-info-icons-d35e', 'position');
 
         const speedButton = `<div class="control-icon token-info-icon" title="Speed">${speed}</div>`;
         const acButton = `<div class="control-icon token-info-icon" title="Armor Class: ${ac}"><i class="fas fa-shield-alt"></i> ${ac}</div>`;
