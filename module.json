@@ -1,7 +1,7 @@
 {
   "title": "Token Info Icons -3.5e",
   "description": "Simple module that displays Speed, AC, and Passive Perception on Tokens for the GM or optionally players.",
-  "version": "11.240.1",
+  "version": "11.0.1",
   "scripts": [
     "/token-info-icons.js"
   ],
@@ -16,6 +16,9 @@
     {
       "name": "Jan Ole Peek (ChalkOne)",
       "flags": {}
+    },
+    {
+      "name": "SuntrustDev"
     }
   ],
   "compatibility": {
@@ -28,9 +31,9 @@
         "id": "dnd5e",
         "type": "system",
         "compatibility": {
-            "minimum": "2.2.2",
-            "verified": "2.4.0",
-            "maximum": "2.9.9"
+          "minimum": "2.2.2",
+          "verified": "2.4.0",
+          "maximum": "2.9.9"
         }
       },
       {
@@ -49,13 +52,13 @@
         "compatibility": {}
       },
       {
-          "id": "D35E",
-          "type": "system",
-          "compatibility": {
-            "minimum": "2.4.0",
-            "verified": "2.4.3",
-            "maximum": "2.4.3"
-          }
+        "id": "D35E",
+        "type": "system",
+        "compatibility": {
+          "minimum": "2.4.0",
+          "verified": "2.4.3",
+          "maximum": "2.4.3"
+        }
       }
     ]
   }
