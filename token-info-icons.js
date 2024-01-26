@@ -1,4 +1,4 @@
-export class TokenInfoIcons35E {
+class TokenInfoIcons35E {
     static async addTokenInfoButtons(app, html, data) {
         console.info("Token Info Icons | Adding token info buttons for D35E");
         let actor = canvas.tokens.get(data._id).actor;
