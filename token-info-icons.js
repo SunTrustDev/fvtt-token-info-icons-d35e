@@ -23,7 +23,7 @@ class TokenInfoIcons {
             perception = perception + actor.system.attributes.perception.value;
             perceptionTitle = "Perception DC";
         }
-        else if (game.world.system === "dcc") {
+        else if (game.world.system === "dcc" || game.world.system === "D35E") {
             perception = 0
             perceptionTitle = "Perception DC";
         } else {
